@@ -10,7 +10,6 @@ RUN \
   echo "deb http://httpredir.debian.org/debian jessie-backports main" \
   > /etc/apt/sources.list.d/backports.list \
   && apt-get update \
-  && apt-get dist-upgrade -y \
   && apt-get install -y openjdk-8-jre
 
 # Define working directory.
