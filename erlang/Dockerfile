@@ -1,5 +1,6 @@
-FROM debian:stable
+FROM debian:8
 ENV DEBIAN_FRONTEND noninteractive
+ENV REFRESHED_AT 2015_07_23
 
 # install dependencies for erlang
 RUN echo 'deb-src http://http.debian.net/debian stable main' >> /etc/apt/sources.list; \
