@@ -1,0 +1,28 @@
+{
+    "create_timestamp": 1440607145,
+    "destinations": [
+        "genivi.org/vin/+/sota/notify",
+        "genivi.org/vin/+/sota/start",
+        "genivi.org/vin/+/sota/chunk",
+        "genivi.org/vin/+/sota/finish"
+    ],
+    "id": "5e5d2fb9-638c-43a3-a395-62e2c1f89b99",
+    "iss": "genivi.org",
+    "keys": [
+        {
+            "alg": "RS256",
+            "e": "AQAB",
+            "kty": "RSA",
+            "n": "s38IZRgBu244uidaOXHTHzYyh7_a1YDA1AYJYDwILm3iOb6ntcLV74UspjAwqnviE0B5bxpyXzUYyp8Nf81Ipktvb2TaDaQL73QGpjAocSK2Q-f1yIJDRzpMz_IoBhkWW8HbQpyQanL2hCteSExK0vsbca0CEi9NDqaPMYSQw8GtD9AGzfYblpfx8a8l8G9JmIWNR70JyX5ttG2hjnH3IORUAX1Cm-fXXrJgnBggXLBVYAgXyZAsUqEMBcJ50DKILBm5XfxK9JUN-rxO99lzkA9JmM8wyw38wlv7gGN1iFsM1C9GJ2qqcEU0hb3vCXVUsCbBJm06the19Psar2RdVY3u-a9ozQK9NK3oN9q3lrzm4t74f2m3SdN1yrhZ1a9Dc1P7PnBJa8jUbGyFxYBJRTqa0M4mm3QIhqNpdGWYbIe9TYCj5U98kxBB5cScbCOspknW9gmM0u5SuJ1CJ2i0KObVs_6DLqxk7ZHZrya3l9qwwIRanl478byvCZPymcueP2i1T0DNaSIp7NlnMty66_LOj7ZosfuWNFlZyZ0_PbQg3Ds_dFbQ6ipmKoh7G3XPfQGiowjUHwSO3eik3HOMfR4RmolBcYJFZGZ1kbswxO04P5831T-vOoxXX4wliXxemq1G-Jb-Z3EFNU9UYl1qirRSqyQEdp1qm2a6ue2IiVM",
+            "use": "sig"
+        }
+    ],
+    "sources": [
+        "genivi.org/backend/sota/ack",
+        "genivi.org/backend/sota/initiate_download"
+    ],
+    "validity": {
+        "start": 1420066800,
+        "stop": 1451602799
+    }
+}
