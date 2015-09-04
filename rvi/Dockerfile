@@ -1,20 +1,27 @@
 FROM advancedtelematic/erlang:R16B03
-ENV REFRESHED_AT 2015-07-22
+ENV REFRESHED_AT 2015-09-04
 
 RUN apt-get update; \
-    apt-get install -y git bluetooth libbluetooth-dev
+    apt-get install -y git bluetooth libbluetooth-dev python
 
-RUN git clone https://github.com/advancedtelematic/rvi_core /rvi
-WORKDIR /rvi
-RUN git checkout fix/sample-local-nodes
+RUN git clone https://github.com/PDXostc/rvi_core /rvi_core
+
+WORKDIR /rvi_core
 
 RUN make; \
     mkdir components/rvi; \
     cp -r ebin components/rvi
 
-ADD run.sh run.sh
-ENTRYPOINT ["/rvi/run.sh"]
-
-# Last to leverage docker caching
-ADD rvi_server.config rvi_server.config
 ADD rvi_client.config rvi_client.config
+ADD rvi_server.config rvi_server.config
+ADD rvi_common.config priv/config/rvi_common.config
+ADD sota_certs sota_certs
+ADD sota_keys sota_keys
+ADD run.sh run.sh
+RUN chmod +x run.sh
+
+EXPOSE 8801-8807
+EXPOSE 8901-8907
+
+ENTRYPOINT ["/rvi_core/run.sh"]
+CMD ["server"]

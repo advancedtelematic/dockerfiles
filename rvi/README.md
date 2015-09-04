@@ -42,23 +42,3 @@ docker run -it \
   -p 8908:8908 \
   advancedtelematic/rvi client
 ```
-
-## Configuration
-
-You can load a different configuration by setting the environment variable
-`CONFIGURATION` and mounting in your configuration file. Assuming you want to
-use the file `/full/path/to/your.conf` run RVI like this, keep in mind, that you
-might need to adjust the ports to match your setup:
-
-```sh
-docker run -it \
-  --expose 8801-8808 \
-  -p 8801:8801 \
-  -p 8805:8805 \
-  -p 8806:8806 \
-  -p 8807:8807 \
-  -p 8808:8808 \
-  -v /full/path/to/your.conf:/new_rvi.config \
-  -e CONFIGURATION=/new_rvi.config \
-  advancedtelematic/rvi
-```
