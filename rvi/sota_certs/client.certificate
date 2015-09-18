@@ -1,8 +1,7 @@
 {
-    "create_timestamp": 1440607142,
+    "create_timestamp": 1442589324,
     "destinations": [
-        "genivi.org/backend/sota/ack",
-        "genivi.org/backend/sota/initiate_download"
+        "genivi.org/backend/sota/+"
     ],
     "id": "f1630572-a977-4eff-907d-2a0a3c886d05",
     "iss": "genivi.org",
@@ -16,10 +15,7 @@
         }
     ],
     "sources": [
-        "genivi.org/vin/+/sota/notify",
-        "genivi.org/vin/+/sota/start",
-        "genivi.org/vin/+/sota/chunk",
-        "genivi.org/vin/+/sota/finish"
+        "genivi.org/vin/+/sota/+"
     ],
     "validity": {
         "start": 1420066800,
