@@ -1,0 +1,24 @@
+{
+    "create_timestamp": 1442935953,
+    "destinations": [
+        "genivi.org/vin/VINOOLAM0FAU2DEEP/sota/+"
+    ],
+    "id": "f1630572-a977-4eff-907d-2a0a3c886d05",
+    "iss": "GenIVI",
+    "keys": [
+        {
+            "alg": "RS256",
+            "e": "AQAB",
+            "kty": "RSA",
+            "n": "j4PXNsNrqcfRHYtwoQHgSoa-TrWRp72LfL6sA1cmBdASa4Y4u6lMnY9WQumL5WvQeF1WS6p_kvdUtYTyyjSg_77LWlyg2QTbZpSN7hCvuKqpWNp_fNJR-5klacOUt0Xda4QUzZD9DsVqznD1WeBecWlh0gXu3DKnkc6Nj_8IPEKsZppx5GuJb8nlZYvxvOThBe44_vkoKL4EeTpesyN4UXUevd1gnaBFapyamsysBgHrZO6E6bnbQc--NhR14Hk9X77jRNxKVBDCQQcGcn9wwJ9T3P0UIvOC5GwtW9LwF54vUBUf8rpP5Qe8Uh2lPTpC1FpWFSeSVR_5oq0DMuyiKp8AXW5RVCwU79235SixupRbmrdEU05X-gBmVs8ZMKOA43dCvPy2inxObemCxtpSjCd1yzzeJeARBnq2l6SgMhGcwl9jAkzHmOdNeZiR1N_VPFTNu6j_a7C9iDSOCvNfLQxCirfhck73QJD5sCA9-RcLll3IQkCn855vI7LOHKyVOy2b_Ezhch0799wmHT-yDACw5DwM9Sq_0vV399sdgLw5CRRhWpMQ8Jzc2xE3xTzCQ5ntwFtrZgMldO3vXGSWMNYnsT4l2mnrse7zByb3F7m1frm1qDqwwbXuJ32rwTByQJTvO7aupo5r9-rBJJ5cp6tGEWVpHJUohllyTeA979E",
+            "use": "sig"
+        }
+    ],
+    "sources": [
+        "genivi.org/backend/sota/+"
+    ],
+    "validity": {
+        "start": 1420070400,
+        "stop": 1483228799
+    }
+}

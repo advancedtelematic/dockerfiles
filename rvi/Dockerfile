@@ -15,7 +15,8 @@ RUN make; \
 ADD rvi_client.config rvi_client.config
 ADD rvi_server.config rvi_server.config
 ADD rvi_common.config priv/config/rvi_common.config
-ADD sota_certs sota_certs
+ADD sota_certs_client sota_certs_client
+ADD sota_certs_server sota_certs_server
 ADD sota_keys sota_keys
 ADD run.sh run.sh
 RUN chmod +x run.sh
