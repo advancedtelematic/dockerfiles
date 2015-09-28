@@ -1,6 +1,6 @@
 FROM ubuntu
 
-ENV REFRESHED_AT=2015-08-21
+ENV REFRESHED_AT=2015-09-28
 
 RUN apt-get update \
  && apt-get upgrade -y
@@ -11,4 +11,4 @@ COPY rustup.sha1 rustup.sha1
 
 RUN curl -o rustup.sh https://static.rust-lang.org/rustup.sh \
  && sha1sum -c rustup.sha1 \
- && yes|sh rustup.sh --disable-sudo
+ && sh rustup.sh --disable-sudo --yes
