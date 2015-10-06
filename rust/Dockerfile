@@ -11,4 +11,4 @@ COPY rustup.sha1 rustup.sha1
 
 RUN curl -o rustup.sh https://static.rust-lang.org/rustup.sh \
  && sha1sum -c rustup.sha1 \
- && sh rustup.sh --disable-sudo --yes
+ && sh rustup.sh --channel=nightly --disable-sudo --yes
