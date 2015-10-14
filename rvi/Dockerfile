@@ -8,7 +8,8 @@ RUN git clone https://github.com/PDXostc/rvi_core /rvi_core
 
 WORKDIR /rvi_core
 
-RUN make; \
+RUN git checkout 7e826fdfbc14efd2cb0e2594591f4e2b1d3c8ff2; \
+    make; \
     mkdir components/rvi; \
     cp -r ebin components/rvi
 
