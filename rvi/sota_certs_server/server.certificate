@@ -1,5 +1,5 @@
 {
-    "create_timestamp": 1442935950,
+    "create_timestamp": 1446227440,
     "destinations": [
         "genivi.org/backend/sota/+"
     ],
@@ -10,7 +10,7 @@
             "alg": "RS256",
             "e": "AQAB",
             "kty": "RSA",
-            "n": "o1Rv-14xDlTPszLA4K9R4OGEOl8KYr6Qfl7tt2M3B7MVBm3JNKREMnmTUpz-dPTWeTtMhqs3O_I4c7uh-LGCjZ-T1NlajVoAXJfLYXagef3_gN2Zscp0wefHo2SyqYYTgYjV3fZe1TvH_oH4CSdCyEOI943Q2JOxSNuW6gFYMa6Q_JIpfuOCvEU4PGI5UVxDEbxxOwFfJP_vet5EOxY37a1J9qI1DkwDMoZtPoxKarNHU9yBONG-Ah-jlpmf_tHl2mzNjVr5O2M-cL8P42Nw2tq9894B638lTDwRT--aQ-Zky17HQ8xgmWpdaCxe39imXcDgNi_X88muDUPBJrcPAxUjzRyfg58P2PsHoF81FmOPULAj3CWqegibQbAmPYTi183TarAodnhScdsR48_IaVbGnZDNiGNYR-IpMDmvkc_d2lrMtbIJpbomWa6VFTnwxd6W67N-cnuxdNI3N2byp-pmz-BEOAv_svw3S22yPfdquLVnFGGuFYMcoQosDdwexdCo6u2s23M9Yvziv-_BFfUx8xyT6b3w0bif2DqRwi6Se6_8hur0TXzgQsGum2k4DdrRW1FxpEjwWicacZdcYOSpUC_JGbO-4eI7ilJgHgoGI3qrdu_bOueFl34AAZzD0DZhXi3KHQIQJeDI-5L8t6Tt-W8dc6ypQbaS__0X7kU",
+            "n": "6J-d7pNzFaYwuQI7NXariakIOlOWFW50z_hlz-RNXqOwKq2lpZtF84kt1kckcnnMDKZJ68f1hipBrje96zdlwqTyZ93t1nYUDdrPluvRCGf5OwwWn-3pjzHKpYxFHscRIxeh0fj_Q6l7ku5pC-Ev1VIrr1EAxKw-rfndeBJuUdAfbXREr8gCjIG8kfAYi6IRTPCHvyMFEsl1sPbhS7zsQ8IcktiYviM3JUPVojc-vyJ6paqikXVt4DSIFZVKOuiBnqPR0kDFDBBe1PCLnGUZVJwaYqP2D0NEB0uMpEmft47nBLTDdiMlnsT-ru47mh8t2VEXKwM_v1BrzIsrfoj8eDKeaClFxZF2IHfWotrrHZcn9PqnTCQC1sB2GK-JzJwGZsbZwyx5lFkGuKH29noktisTGN4jQm2sd2htzxbb4oEsgYNo7TIEzYLDGrCTER9G6LSXXpU3VlPB7UbjCy3XvW8Q-xClxxx1SZpoB9ztFV16D3PdTtjpftFhQoXJyY8DXkHephInX1yXnGZy_FVFpXzuzl3-wcoV9uTemeo0mEq1-FGFgCnm3EKA794B5wtLCJZwzHi02TTAWYw8Ki_zbGFPUbvI6fh4Cp6UZe0Rj_NuJlB-6OvEf51ibeQvoyRVpi3LUiO6ygiBawJQjhQxK9cSo1Tvin4CAVz2f8TStwc",
             "use": "sig"
         }
     ],
@@ -18,7 +18,7 @@
         "genivi.org/vin/+/sota/+"
     ],
     "validity": {
-        "start": 1420070400,
-        "stop": 1483228799
+        "start": 1420066800,
+        "stop": 1483225199
     }
 }
