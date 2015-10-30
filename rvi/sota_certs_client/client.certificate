@@ -1,7 +1,7 @@
 {
-    "create_timestamp": 1442935953,
+    "create_timestamp": 1446227435,
     "destinations": [
-        "genivi.org/vin/VINOOLAM0FAU2DEEP/sota/+"
+        "genivi.org/vin/VIN12345678901234/sota/+"
     ],
     "id": "f1630572-a977-4eff-907d-2a0a3c886d05",
     "iss": "GenIVI",
@@ -10,7 +10,7 @@
             "alg": "RS256",
             "e": "AQAB",
             "kty": "RSA",
-            "n": "j4PXNsNrqcfRHYtwoQHgSoa-TrWRp72LfL6sA1cmBdASa4Y4u6lMnY9WQumL5WvQeF1WS6p_kvdUtYTyyjSg_77LWlyg2QTbZpSN7hCvuKqpWNp_fNJR-5klacOUt0Xda4QUzZD9DsVqznD1WeBecWlh0gXu3DKnkc6Nj_8IPEKsZppx5GuJb8nlZYvxvOThBe44_vkoKL4EeTpesyN4UXUevd1gnaBFapyamsysBgHrZO6E6bnbQc--NhR14Hk9X77jRNxKVBDCQQcGcn9wwJ9T3P0UIvOC5GwtW9LwF54vUBUf8rpP5Qe8Uh2lPTpC1FpWFSeSVR_5oq0DMuyiKp8AXW5RVCwU79235SixupRbmrdEU05X-gBmVs8ZMKOA43dCvPy2inxObemCxtpSjCd1yzzeJeARBnq2l6SgMhGcwl9jAkzHmOdNeZiR1N_VPFTNu6j_a7C9iDSOCvNfLQxCirfhck73QJD5sCA9-RcLll3IQkCn855vI7LOHKyVOy2b_Ezhch0799wmHT-yDACw5DwM9Sq_0vV399sdgLw5CRRhWpMQ8Jzc2xE3xTzCQ5ntwFtrZgMldO3vXGSWMNYnsT4l2mnrse7zByb3F7m1frm1qDqwwbXuJ32rwTByQJTvO7aupo5r9-rBJJ5cp6tGEWVpHJUohllyTeA979E",
+            "n": "xTGLVPcY_dtOq9mL0TkDxyMHE19k3LdiRJErlSss5NCNLCyfps6QObKU3nvZBhfcGiw_Chz2_0MbDmo9vcEexeE6pE5VcdDjA-tc0VhSQDud9Q6Hs7mrAmw_0Pf8J0M3J9fyJan_H-n9FUEqJ4LpVZWzPzznPU-yoqgkctZH3NEAZwk3YmlXk54vvvu5_Rkh39MCfiEyV94QPEXeHZtQ2ZQbeG41rK0tsteuTLIdf_GNF9Be09CZgMzMr_9C91TiqEZ5IABPiFm4aywQaI2O-EW-lnbONAgU3pdbJ9C8q7Yat0sXiDCPzFhGhN07IfDmjGd3QgEaBFESQpIF8eQsWCUthvwF98s5VfDWh1lPje6VCwS3Q4TDoAE5kcbXXyKPo_O1QJNQtlDfC4F1-82dJK2l9wtlqvi2Vg2wW-B19Pw-THVGnW2CKcyEOeV1N-nqU7wAe875R5ZOtQPccCqVXbyU7-6PcRUaHsq31YXX5pzd_90RFHKzZb0w2l62Dk__nFHfYIxRrRGGBVyWXEBkgbyzVnV1XQ7m3DrZM-8HycVQ8BHOzb9i4VQgpGTok74rjqPWVM0cPY0nwk9pegwhmPHleQtwIiAFkszTJn6k-5A06U3kuESV1Mk6YsNNoTxhgexQloE6TRdx9GFp1TYDDnHTZS16ASvEH6NrovqSztc",
             "use": "sig"
         }
     ],
@@ -18,7 +18,7 @@
         "genivi.org/backend/sota/+"
     ],
     "validity": {
-        "start": 1420070400,
-        "stop": 1483228799
+        "start": 1420066800,
+        "stop": 1483225199
     }
 }
