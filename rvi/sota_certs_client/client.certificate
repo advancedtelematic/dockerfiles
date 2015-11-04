@@ -1,7 +1,7 @@
 {
-    "create_timestamp": 1446227435,
+    "create_timestamp": 1446634858,
     "destinations": [
-        "genivi.org/vin/VIN12345678901234/sota/+"
+        "genivi.org/vin/V1234567890123456/sota/+"
     ],
     "id": "f1630572-a977-4eff-907d-2a0a3c886d05",
     "iss": "GenIVI",
@@ -10,7 +10,7 @@
             "alg": "RS256",
             "e": "AQAB",
             "kty": "RSA",
-            "n": "xTGLVPcY_dtOq9mL0TkDxyMHE19k3LdiRJErlSss5NCNLCyfps6QObKU3nvZBhfcGiw_Chz2_0MbDmo9vcEexeE6pE5VcdDjA-tc0VhSQDud9Q6Hs7mrAmw_0Pf8J0M3J9fyJan_H-n9FUEqJ4LpVZWzPzznPU-yoqgkctZH3NEAZwk3YmlXk54vvvu5_Rkh39MCfiEyV94QPEXeHZtQ2ZQbeG41rK0tsteuTLIdf_GNF9Be09CZgMzMr_9C91TiqEZ5IABPiFm4aywQaI2O-EW-lnbONAgU3pdbJ9C8q7Yat0sXiDCPzFhGhN07IfDmjGd3QgEaBFESQpIF8eQsWCUthvwF98s5VfDWh1lPje6VCwS3Q4TDoAE5kcbXXyKPo_O1QJNQtlDfC4F1-82dJK2l9wtlqvi2Vg2wW-B19Pw-THVGnW2CKcyEOeV1N-nqU7wAe875R5ZOtQPccCqVXbyU7-6PcRUaHsq31YXX5pzd_90RFHKzZb0w2l62Dk__nFHfYIxRrRGGBVyWXEBkgbyzVnV1XQ7m3DrZM-8HycVQ8BHOzb9i4VQgpGTok74rjqPWVM0cPY0nwk9pegwhmPHleQtwIiAFkszTJn6k-5A06U3kuESV1Mk6YsNNoTxhgexQloE6TRdx9GFp1TYDDnHTZS16ASvEH6NrovqSztc",
+            "n": "5puNgqCXgYgSgNTS23cBo2ZyuhuJnoYCX_bKI08_Ar_fTMtZX_wfdY3rVytDAPH4Gf3xLvW_DjpI3Njm3uiO_K7RnrGL9XLpMSrgGkGqVAjaXu7KF7U6IwBH-w7bjreKlDCogpV-j2Tde8_ZrQxLNDkRezryqUcA-k_5fcd5ZKbMP06cCDDoErqad-keIqiCnrNdx1CuxYGlyoSk3uPrNYf-gKSQeUBwWYv2tDvK2WVdh_KeHuOD_zqdTkzLL9a2ohmh9-HtpYCKVAmziMyObPEp-GXiuBjGTStGkuW8lGzMGLMSBmGZwAdiSlkBgcMAKfRQnyDpOo5oJb2VoV0_Vf9-uihiazrp5o23FhT23VEkVRI-0lDZZ3xqfD7Bn8IxItfFJbrWUQBG5bA7rI9iEg1hLPRt1C2JbejJBhN2cEPPhrZbAdzat0TvlilJphgBGTj86Fp9D2X1mnmPunX4pLvX6zKCSPAq6Z6BL6dmYN-fBCCyfN-AFhpL1zY6vi0xuKt5lj4NIfJGHZcSfEv3BLhyk2CuTOSWq43aaTaBsOaOJu3sbLJ26ORfhVGCiQOQU5B8gxQis5C3sQajjH6GI9rcGoiH5JPcZgFK28NQnL5eYdiCvqYsXWYoXQ3bgnNRZ8jJFgxyVPJz3x9prDUe89_yMjuyWIQgFfOwj48NZQM",
             "use": "sig"
         }
     ],
