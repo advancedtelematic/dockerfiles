@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Check if a lua profile is present
+nb_lua_profile=`find /opt/osrm/profiles -name "*.lua" -ls | wc -l`
+echo "$nb_lua_profile profiles found"
+if [[ $nb_lua_profile == 0 ]]; then
+    echo "Copying base lua profile..."
+    cp /opt/osrm/bin/sources/profile.lua /opt/osrm/profiles/
+fi
+
+# Check if conf files are here
+if [[ ! -f "/opt/osrm/etc/extractor.ini" ]]; then
+    cp /opt/osrm/bin/sources/extractor.ini /opt/osrm/etc/
+fi
+if [[ ! -f "/opt/osrm/etc/contractor.ini" ]]; then
+    cp /opt/osrm/bin/sources/contractor.ini /opt/osrm/etc/
+fi
+if [[ -f "/opt/osrm/etc/.stxxl" ]]; then
+    cp /opt/osrm/etc/.stxxl ./
+else
+    cp /opt/osrm/bin/sources/.stxxl ./
+fi
+
+osrm-extract -c /opt/osrm/etc/extractor.ini /opt/osrm/data/map.osm.pbf && \
+    osrm-prepare -p /opt/osrm/profiles/profile.lua /opt/osrm/data/map.osrm
+
+rm .stxxl
+

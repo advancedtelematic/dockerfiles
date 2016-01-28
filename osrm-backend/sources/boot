@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ ! -f "/opt/osrm/etc/osrm.conf" ]]; then
+    cp /opt/osrm/bin/sources/osrm.conf /opt/osrm/etc/
+fi
+
+#execute the command the user wnated to execute
+for var in "$@"; do
+    cmd="$cmd $var"
+done
+$cmd
