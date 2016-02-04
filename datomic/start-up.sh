@@ -1,5 +1,7 @@
 #!/bin/sh
 
-echo alt-host="${DATOMIC_HOST}" >> ~/datomic/free-transactor.properties
+DATOMIC_CFG="/opt/datomic/free-transactor.properties"
 
-exec /root/datomic/bin/transactor /root/datomic/free-transactor.properties $*
+echo alt-host="${DATOMIC_HOST}" >> $DATOMIC_CFG
+
+exec /opt/datomic/bin/transactor $DATOMIC_CFG $*
