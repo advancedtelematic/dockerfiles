@@ -1,6 +1,6 @@
-FROM osrm-backend
+FROM advancedtelematic/osrm-backend
 
-VOLUME ["/opt/osrm/data"]
+VOLUME ["/var/lib/osrm/data"]
 COPY extractor.sh /opt/osrm/bin/
 COPY extractor.ini /opt/osrm/etc/
 COPY .stxxl /opt/osrm/etc/
