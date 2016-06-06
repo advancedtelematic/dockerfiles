@@ -2,43 +2,38 @@
 
 Run a RVI node in Docker.
 
-See [PDXostc/rvi_core](https://github.com/PDXostc/rvi_core) for documentation on
-RVI.
+See [GENIVI/rvi_core](https://github.com/GENIVI/rvi_core) for documentation on RVI.
 
 ## Quickstart
 
-### Server node
+### Backend Server node
 
 To quickly spin up a development RVI node, with a [server
-configuration](https://github.com/advancedtelematic/dockerfiles/blob/master/rvi/rvi_server.config)
+configuration](https://github.com/advancedtelematic/dockerfiles/blob/master/rvi/backend.rvi.config)
 and disabled bluetooth run:
 
 ```sh
-docker run -it \
-  --expose 8801 \
-  --expose 8805-8808 \
+docker run -dt \
   -p 8801:8801 \
-  -p 8805:8805 \
-  -p 8806:8806 \
-  -p 8807:8807 \
-  -p 8808:8808 \
-  advancedtelematic/rvi server
+  --expose 8801 \
+  --env "RVI_LOGLEVEL=debug"
+  --name rvi-backend
+  advancedtelematic/rvi backend
 ```
 
-### Client node
+### Device Client node
 
 To quickly spin up a development RVI node, with a [client
-configuration](https://github.com/advancedtelematic/dockerfiles/blob/master/rvi/rvi_client.config)
+configuration](https://github.com/advancedtelematic/dockerfiles/blob/master/rvi/device.rvi.config)
 and disabled bluetooth run:
 
 ```sh
-docker run -it \
-  --expose 8901 \
-  --expose 8905-8908 \
-  -p 8901:8901 \
-  -p 8905:8905 \
-  -p 8906:8906 \
-  -p 8907:8907 \
-  -p 8908:8908 \
-  advancedtelematic/rvi client
+docker run -dt
+  -p 8901:8901
+  --link rvisrv
+  --env "RVI_BACKEND=rvisrv"
+  --env "RVI_LOGLEVEL=debug"
+  --env "DEVICE_ID=V1234567890123456"
+  --name rvi-device
+  advancedtelematic/rvi device
 ```
