@@ -1,14 +1,17 @@
-FROM ubuntu
+FROM debian:jessie
 
-ENV REFRESHED_AT=2015-09-28
+RUN apt-get update && apt-get install -y \
+    curl \
+    file \
+    sudo \
+  && rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update \
- && apt-get upgrade -y
+RUN curl https://sh.rustup.rs > rustup.rs \
+  && sh rustup.rs -y \
+  && . $HOME/.cargo/env \
+  && echo 'source $HOME/.cargo/env' >> $HOME/.bashrc \
+  && rustup target add x86_64-unknown-linux-musl \
+  && rustup toolchain install 1.7.0
 
-RUN apt-get install -y curl openssl file
-
-COPY rustup.sha1 rustup.sha1
-
-RUN curl -o rustup.sh https://static.rust-lang.org/rustup.sh \
- && sha1sum -c rustup.sha1 \
- && sh rustup.sh --channel=nightly --disable-sudo --yes
+VOLUME /build
+WORKDIR /build
