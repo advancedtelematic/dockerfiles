@@ -15,8 +15,8 @@ RUN apt-get update -q && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN mkdir -p /root/.local/bin && \
-    wget -q -O- $STACK_DOWNLOAD_URL | tar --strip=1 -xvz -C /root/.local/bin/ && \
-    chmod +x /root/.local/bin/stack
+RUN mkdir -p /usr/local/bin && \
+    wget -q -O- $STACK_DOWNLOAD_URL | tar --strip=1 -xvz -C /usr/local/bin/ && \
+    chmod +x /usr/local/bin/stack
 
 WORKDIR /src
