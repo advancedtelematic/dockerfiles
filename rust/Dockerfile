@@ -13,16 +13,12 @@ RUN apt-get update && apt-get install -y \
     sudo \
   && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /rust
-ENV RUSTUP_HOME=/rust
-ENV CARGO_HOME=/rust
-
 RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain stable -y \
-  && /rust/bin/rustup target add x86_64-unknown-linux-musl \
-  && /rust/bin/rustup toolchain install 1.7.0
+  && /root/.cargo/bin/rustup target add x86_64-unknown-linux-musl \
+  && /root/.cargo/bin/rustup toolchain install 1.7.0
 
 ENV \
-  PATH=/rust/bin:$PATH \
+  PATH=/root/.cargo/bin:$PATH \
   OPENSSL_VERSION=1.0.2h \
   OPENSSL_LIB_DIR=/usr/local/ssl/lib \
   OPENSSL_INCLUDE_DIR=/usr/local/ssl/include \
