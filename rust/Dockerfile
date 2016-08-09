@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     file \
     git \
+    libdbus-1-dev \
     libtool \
     musl-tools \
     openssl \
