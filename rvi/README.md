@@ -30,8 +30,9 @@ and disabled bluetooth run:
 ```sh
 docker run -dt
   -p 8901:8901
-  --link rvisrv
-  --env "RVI_BACKEND=rvisrv"
+  --link rvi-backend
+  --env "RVI_BACKEND=rvi-backend"
+  --env "RVI_BACKEND_PORT=8807"
   --env "RVI_LOGLEVEL=debug"
   --env "DEVICE_ID=V1234567890123456"
   --name rvi-device
