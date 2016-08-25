@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:7
 
 RUN apt-get update && apt-get install -y \
     autoconf \
@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
     git \
     libdbus-1-dev \
     libtool \
-    musl-tools \
     openssl \
     sudo \
   && rm -rf /var/lib/apt/lists/*
