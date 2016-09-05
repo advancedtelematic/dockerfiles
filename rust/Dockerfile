@@ -26,12 +26,12 @@ RUN curl https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz -O \
   && cd openssl-${OPENSSL_VERSION} && ./config -fPIC && make depend && make install \
   && cd .. && rm -rf openssl-${OPENSSL_VERSION}*
 
-# download rustup and install additional toolchains
+# download rustup and install additional toolchains and targets
 RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain stable -y \
-  && /root/.cargo/bin/rustup target add x86_64-unknown-linux-musl \
-  && /root/.cargo/bin/rustup toolchain install 1.7.0 \
-  && /root/.cargo/bin/rustup toolchain install 1.10.0 \
-  && /root/.cargo/bin/rustup toolchain install nightly
+  && rustup toolchain install nightly \
+  && rustup toolchain install 1.10.0 \
+  && rustup default 1.10.0 \
+  && rustup target add x86_64-unknown-linux-musl
 
 # install rust-clippy using nightly rustc
 RUN git clone https://github.com/Manishearth/rust-clippy.git /root/rust-clippy \
