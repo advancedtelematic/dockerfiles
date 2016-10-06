@@ -1,0 +1,2 @@
+[target.arm-unknown-linux-musleabi]
+linker = "/usr/bin/arm-linux-musleabi-gcc"
