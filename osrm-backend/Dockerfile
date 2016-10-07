@@ -1,12 +1,24 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
-RUN apt-get update && apt-get install -y apt-transport-https wget
-RUN wget -q -O - https://ppa.openerp-experts.net/ppa.pub | apt-key add -
-RUN echo "deb [arch=amd64] https://ppa.openerp-experts.net/ trusty main" > /etc/apt/sources.list.d/osrm.list
-RUN apt-get update && apt-get install -y osrm.backend
+RUN apt-get update && \
+    apt-get install -y build-essential git cmake pkg-config \
+       libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev \
+       libzip-dev libboost-all-dev lua5.2 liblua5.2-dev libluabind-dev libtbb-dev
+
+RUN git clone https://github.com/Project-OSRM/osrm-backend.git /osrm-backend
+WORKDIR /osrm-backend
+
+RUN mkdir -p build
+RUN cd build && \
+    cmake .. -DCMAKE_BUILD_TYPE=Release && \
+    cmake --build . && \
+    cmake --build . --target install
+RUN cp build/osrm-routed /usr/bin/
+RUN cp build/osrm-extract /usr/bin/
+RUN cp build/osrm-contract /usr/bin/
+RUN cp build/osrm-datastore /usr/bin/
 
 VOLUME ["/var/lib/osrm/data"]
-COPY osrm.conf /opt/osrm/etc/
 
 EXPOSE 5000
-ENTRYPOINT ["usr/bin/osrm-routed", "-c", "/opt/osrm/etc/osrm.conf", "/var/lib/osrm/data/map.osrm"]
+ENTRYPOINT ["/usr/bin/osrm-routed", "/var/lib/osrm/data/map.osrm"]
