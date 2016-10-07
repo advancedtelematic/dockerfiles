@@ -6,13 +6,12 @@ MAP_PBF=/var/lib/osrm/data/map.osm.pbf
 if [ -f "$MAP_PBF" ]
 then
   echo "Map exists: $MAP_PBF"
-  exit 0
+else
+  echo "Downloading $MAP_PBF_URL"
+  wget $MAP_PBF_URL -O $MAP_PBF
 fi
 
-cp /opt/osrm/etc/.stxxl .
 
-wget $MAP_PBF_URL -O $MAP_PBF && \
-osrm-extract -c /opt/osrm/etc/extractor.ini $MAP_PBF && \
-osrm-prepare -p /opt/osrm/profiles/profile.lua /var/lib/osrm/data/map.osrm
-
-rm .stxxl
+cd /osrm-backend
+osrm-extract -p profiles/car.lua $MAP_PBF
+osrm-contract /var/lib/osrm/data/map.osrm
