@@ -1,0 +1,2 @@
+#!/bin/sh
+asciidoctor-pdf -a pdf-style=ats-theme.yml -a pdf-fontsdir=/themes -a pdf-stylesdir=/themes $1
