@@ -5,7 +5,7 @@ RUN apt-get update && \
        libbz2-dev libstxxl-dev libstxxl1v5 libxml2-dev \
        libzip-dev libboost-all-dev lua5.2 liblua5.2-dev libluabind-dev libtbb-dev
 
-RUN git clone https://github.com/Project-OSRM/osrm-backend.git /osrm-backend
+RUN git clone --branch v5.4.0 https://github.com/Project-OSRM/osrm-backend.git /osrm-backend
 WORKDIR /osrm-backend
 
 RUN mkdir -p build
