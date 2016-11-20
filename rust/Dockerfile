@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     file \
     git \
     libdbus-1-dev \
+    libssl-dev \
     libtool \
     openssl \
     sudo \
@@ -47,6 +48,9 @@ RUN git clone git://git.musl-libc.org/musl /root/musl \
   && curl https://ftp.gnu.org/gnu/binutils/binutils-2.27.tar.gz | tar zxv \
   && cd binutils-2.27 && ./configure --prefix=/usr && make && make install \
   && rm -rf /root/musl
+
+# set environment variables for rust runtime
+ENV RUST_BACKTRACE=1
 
 VOLUME /build
 WORKDIR /build
