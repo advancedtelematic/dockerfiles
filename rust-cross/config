@@ -1,2 +1,2 @@
-[target.arm-unknown-linux-musleabi]
-linker = "/usr/bin/arm-linux-musleabi-gcc"
+[target.armv7-unknown-linux-gnueabihf]
+linker = "/usr/bin/arm-linux-gnueabihf-gcc"
