@@ -68,7 +68,8 @@ ARG rustc_version=stable
 RUN curl https://sh.rustup.rs -sSf | sh -s -- --default-toolchain $rustc_version -y \
   && rustup target add x86_64-unknown-linux-musl \
   && rustup target add arm-unknown-linux-gnueabi \
-  && rustup target add arm-unknown-linux-gnueabihf
+  && rustup target add arm-unknown-linux-gnueabihf \
+  && rustup target add armv7-unknown-linux-gnueabihf
 
 COPY config /root/.cargo/config
 
