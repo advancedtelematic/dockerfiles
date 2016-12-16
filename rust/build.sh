@@ -1,30 +1,30 @@
 #!/bin/bash
 
-set -eo pipefail
+set -xeo pipefail
 
 
 repo="advancedtelematic/rust"
 archs=("x86" "armel" "armhf")
-rust_vers=("1.12.1" "stable")
+versions=("stable" "1.10.0" "1.12.1")
 
 
 function build {
-  rustc_version=$1
+  version=$1
   arch=$2
 
   docker build \
-    --tag "$repo:$arch-$rustc_version" \
-    --build-arg rustc_version="$rustc_version" \
+    --tag "$repo:$arch-$version" \
+    --build-arg rustc_version="$version" \
     --build-arg arch="$arch" \
     .
 
-  docker push "$repo:$arch-$rustc_version"
+  docker push "$repo:$arch-$version"
 }
 
 
-for rust_ver in "${rust_vers[@]}"; do
+for version in "${versions[@]}"; do
   for arch in "${archs[@]}"; do
-    build "$rust_ver" "$arch"
+    build "$version" "$arch"
   done
 done
 
