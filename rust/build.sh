@@ -5,7 +5,8 @@ set -xeo pipefail
 
 repo="advancedtelematic/rust"
 archs=("x86" "armel" "armhf")
-versions=("stable" "1.10.0" "1.12.1")
+versions=("stable" "nightly" "1.10.0")
+push=${1:-false}
 
 
 function build {
@@ -18,7 +19,9 @@ function build {
     --build-arg arch="$arch" \
     .
 
-  docker push "$repo:$arch-$version"
+  if [[ "$push" = true ]]; then
+    docker push "$repo:$arch-$version"
+  fi
 }
 
 
@@ -30,4 +33,6 @@ done
 
 
 docker tag "$repo:x86-stable" "$repo:latest"
-docker push "$repo:latest"
+if [[ "$push" = true ]]; then
+  docker push "$repo:latest";
+fi
