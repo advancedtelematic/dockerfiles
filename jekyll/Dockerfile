@@ -1,15 +1,14 @@
-FROM ruby:2.2.5
+FROM ruby:2.2.6-alpine
 
 ADD Gemfile /
-RUN bundle install
-RUN wget https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb && dpkg -i pandoc-1.17.2-1-amd64.deb && rm pandoc-1.17.2-1-amd64.deb
 
-ADD ats-doc-builder/pdf-themes /themes/
-ADD ats-doc-builder/docx-themes /themes/
-ADD mkdocx /bin/
-ADD mkpdf /bin/
+# We need build-base because some of the Ruby gems have native extensions. They're deleted \
+# afterwards to slim the image down.
+RUN apk add --update build-base ruby-dev python && \
+  bundle install --no-cache --clean && \
+  apk del build-base ruby-dev && \
+  rm /usr/local/bundle/cache/*
 
 VOLUME /site
 WORKDIR /site
 CMD ["jekyll", "b"]
-
