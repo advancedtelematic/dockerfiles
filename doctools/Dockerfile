@@ -55,7 +55,7 @@ RUN apk add tar libarchive-tools && \
   cd .. && rm -rf temp && \
   apk del tar libarchive-tools
 
-RUN apk add py-pillow py-pip && pip install cherrypy seqdiag actdiag nwdiag && apk del py-pip
+RUN apk add bash py-pillow py-pip && pip install cherrypy seqdiag actdiag nwdiag && apk del py-pip
 
 ADD ats-doc-builder/pdf-themes /themes/
 ADD ats-doc-builder/docx-themes /themes/

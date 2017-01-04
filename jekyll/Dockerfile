@@ -9,6 +9,9 @@ RUN apk add --update build-base ruby-dev python && \
   apk del build-base ruby-dev && \
   rm /usr/local/bundle/cache/*
 
+# Some scripts that use this container need /bin/bash.
+RUN apk add bash
+
 VOLUME /site
 WORKDIR /site
 CMD ["jekyll", "b"]
