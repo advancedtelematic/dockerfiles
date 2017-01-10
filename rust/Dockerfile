@@ -52,10 +52,10 @@ RUN curl -sL https://dbus.freedesktop.org/releases/dbus/dbus-$dbus_version.tar.g
   && cd .. && rm -rf dbus-$dbus_version
 
 # compile openssl
-ARG openssl_version=1.0.2j
-ARG openssl_x86_flags="linux-x86_64 --prefix=/x86/ssl -fPIC"
-ARG openssl_armel_flags="linux-armv4 --prefix=/armel/ssl -fPIC"
-ARG openssl_armhf_flags="linux-armv4 --prefix=/armhf/ssl -fPIC"
+ARG openssl_version=1.0.1u
+ARG openssl_x86_flags="linux-x86_64 --prefix=/x86/ssl -fPIC shared"
+ARG openssl_armel_flags="linux-armv4 --prefix=/armel/ssl -fPIC shared"
+ARG openssl_armhf_flags="linux-armv4 --prefix=/armhf/ssl -fPIC shared"
 RUN curl https://www.openssl.org/source/openssl-$openssl_version.tar.gz | tar xz \
   && cd openssl-$openssl_version \
   && ./Configure $openssl_x86_flags && make -j$(nproc) && make install && make clean \
