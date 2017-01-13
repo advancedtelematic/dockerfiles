@@ -1,28 +1,29 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 
-RUN apt-get update && \
-    apt-get install -y libbluetooth3 bluez python-jsonrpclib wget
+COPY erlang_solutions.asc /
+RUN echo "deb http://packages.erlang-solutions.com/debian jessie contrib" >> /etc/apt/sources.list \
+  && apt-key add erlang_solutions.asc \
+  && rm erlang_solutions.asc
 
-RUN echo "deb http://packages.erlang-solutions.com/debian jessie contrib" >> /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get install -y --force-yes esl-erlang
+RUN apt-get update && apt-get install -y \
+    bluez \
+    esl-erlang \
+    libbluetooth3 \
+    python-jsonrpclib \
+    wget \
+  && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /opt
-RUN wget https://github.com/PDXostc/rvi_core/releases/download/v0.5.0/rvi_0.5.0-1_amd64.deb && \
-    dpkg -i rvi_0.5.0-1_amd64.deb
-RUN rm /usr/lib/rvi_core/priv/keys/insecure_device_key.pem && \
-    wget -O /usr/lib/rvi_core/priv/keys/device_key.pem https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/keys/insecure_device_key.pem
-RUN rm /usr/lib/rvi_core/priv/keys/insecure_root_key.pem && \
-    wget -O /usr/lib/rvi_core/priv/keys/root_key.pem https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/keys/insecure_root_key.pem
-RUN rm /usr/lib/rvi_core/priv/certificates/insecure_device_cert.crt && \
-    wget -O /usr/lib/rvi_core/priv/certificates/device_cert.crt https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/certificates/insecure_device_cert.crt
-RUN rm /usr/lib/rvi_core/priv/certificates/insecure_root_cert.crt && \
-    wget -O /usr/lib/rvi_core/priv/certificates/root_cert.crt https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/certificates/insecure_root_cert.crt
-RUN rm /usr/lib/rvi_core/priv/credentials/insecure_credential.json && \
-    wget -O /usr/lib/rvi_core/priv/credentials/credential.json https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/credentials/insecure_credential.json
-RUN rm /usr/lib/rvi_core/priv/credentials/insecure_credential.jwt && \
-    wget -O /usr/lib/rvi_core/priv/credentials/credential.jwt https://raw.githubusercontent.com/GENIVI/rvi_core/develop/priv/credentials/insecure_credential.jwt
+ARG rvi_version=0.5.1
+RUN wget https://github.com/GENIVI/rvi_core/releases/download/v${rvi_version}/rvi_${rvi_version}-1_amd64.deb \
+  && dpkg -i rvi_${rvi_version}-1_amd64.deb \
+  && rm rvi_${rvi_version}-1_amd64.deb
 
+RUN rm /usr/lib/rvi_core/deps/exo/priv/host.cert \
+  && rm /usr/lib/rvi_core/deps/exo/priv/host.key \
+  && ln -s /usr/lib/rvi_core/priv/certificates/device_cert.crt /usr/lib/rvi_core/deps/exo/priv/host.cert \
+  && ln -s /usr/lib/rvi_core/priv/keys/device_key.pem /usr/lib/rvi_core/deps/exo/priv/host.key \
+  && ln -s /usr/lib/rvi_core/priv/certificates/root_cert.crt /usr/local/share/ca-certificates/ \
+  && update-ca-certificates
 
 COPY backend.rvi.config /etc/rvi/
 COPY device.rvi.config /etc/rvi/
