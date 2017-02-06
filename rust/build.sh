@@ -3,36 +3,20 @@
 set -xeo pipefail
 
 
+version=${1?"Usage: $0 <version> [<push=false]"}
+push=${2:-false}
+
 repo="advancedtelematic/rust"
 archs=("x86" "armel" "armhf")
-versions=("stable" "nightly" "1.10.0")
-push=${1:-false}
 
-
-function build {
-  version=$1
-  arch=$2
+for arch in "${archs[@]}"; do
+  tag="$repo:$arch-$version"
 
   docker build \
-    --tag "$repo:$arch-$version" \
-    --build-arg rustc_version="$version" \
+    --tag "$tag" \
     --build-arg arch="$arch" \
+    --build-arg rustc_version="$version" \
     .
 
-  if [[ "$push" = true ]]; then
-    docker push "$repo:$arch-$version"
-  fi
-}
-
-
-for version in "${versions[@]}"; do
-  for arch in "${archs[@]}"; do
-    build "$version" "$arch"
-  done
+  [[ "$push" = true ]] && docker push "$tag"
 done
-
-
-docker tag "$repo:x86-stable" "$repo:latest"
-if [[ "$push" = true ]]; then
-  docker push "$repo:latest";
-fi
