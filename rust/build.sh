@@ -11,6 +11,7 @@ archs=("x86" "armel" "armhf")
 
 for arch in "${archs[@]}"; do
   tag="$repo:$arch-$version"
+  [[ $version = 'nightly' ]] && tag+="-$(date -u +%Y-%m-%d)"
 
   docker build \
     --tag "$tag" \
