@@ -38,9 +38,11 @@ ENV LANG=C.UTF-8
 
 ADD Gemfile /
 
+RUN echo http://dl-cdn.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && apk update
+
 # We need build-base because some of the Ruby gems have native extensions. They're deleted \
 # afterwards to slim the image down.
-RUN apk add --update build-base libffi-dev openssl gmp && \
+RUN apk add --update build-base libffi-dev openssl gmp graphicsmagick-dev && \
   bundle install --no-cache --clean && \
   apk del binutils-libs binutils isl libgomp libatomic libgcc mpfr3 mpc1 libstdc++ gcc \
   make musl-dev libc-dev fortify-headers g++ build-base && \
