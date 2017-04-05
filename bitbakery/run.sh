@@ -1,10 +1,9 @@
 #!/bin/sh
 
-. $HOME/.env/bin/activate
 . $SRC_DIR/meta-agl/scripts/aglsetup.sh -b $BUILD_DIR -m qemux86-64 agl-devel agl-sota agl-demo
 
 # prepare config
-echo "SSTATE_DIR ?= \"/var/cache/sstate-cache\"" \
+echo "SSTATE_DIR ?= \"$CACHE_DIR\"" \
   >> conf/local.conf
 echo "SSTATE_MIRRORS ?= \"file://.* https://s3.eu-central-1.amazonaws.com/ats-sstate/yocto-sstate/PATH;downloadfilename=PATH\"" \
   >> conf/local.conf
