@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# create myself
+useradd --shell /bin/bash -u $USER_ID -o -c "" -m bitbake
+
+id
+exec sudo -u bitbake /bin/bash - << EOF
+id
+
 . $SRC_DIR/meta-agl/scripts/aglsetup.sh -b $BUILD_DIR -m qemux86-64 agl-devel agl-sota agl-demo
 
 # appending user-defined config
@@ -17,3 +24,5 @@ echo "TMPDIR = \"$BUILD_DIR/tmp\"" \
 bitbake theatre-image
 cp $BUILD_DIR/tmp/deploy/images/qemux86-64/*.otaimg $OUT_DIR
 cp -r $BUILD_DIR/tmp/deploy/images/qemux86-64/ostree_repo $OUT_DIR
+
+EOF

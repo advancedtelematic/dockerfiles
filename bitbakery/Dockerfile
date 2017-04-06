@@ -1,4 +1,4 @@
-FROM buildpack-deps
+FROM debian
 MAINTAINER Robert Danitz <robert@advancedtelematic.com>
 
 ENV SRC_DIR="/opt/agl-repo"
@@ -12,7 +12,7 @@ RUN apt-get update -q && \
     apt-get install -qy \
     gawk wget git-core diffstat unzip texinfo gcc-multilib \
     build-essential chrpath socat libsdl1.2-dev xterm qemu \
-    cpio locales python3 && \
+    cpio locales python3 sudo && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
