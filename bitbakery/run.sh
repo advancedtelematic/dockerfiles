@@ -12,6 +12,9 @@ id
 # appending user-defined config
 cat /opt/local.conf.append >> conf/local.conf || true
 
+echo "require conf/include/qemu-tweaks.inc" \
+  >> conf/local.conf
+
 # prepare config
 echo "SSTATE_DIR ?= \"$CACHE_DIR\"" \
   >> conf/local.conf
