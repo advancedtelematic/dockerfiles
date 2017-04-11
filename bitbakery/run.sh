@@ -18,8 +18,6 @@ echo "require conf/include/qemu-tweaks.inc" \
 # prepare config
 echo "SSTATE_DIR ?= \"$CACHE_DIR\"" \
   >> conf/local.conf
-echo "SSTATE_MIRRORS ?= \"file://.* https://s3.eu-central-1.amazonaws.com/ats-sstate/yocto-sstate/PATH;downloadfilename=PATH\"" \
-  >> conf/local.conf
 echo "TMPDIR = \"$BUILD_DIR/tmp\"" \
   >> conf/local.conf
 
