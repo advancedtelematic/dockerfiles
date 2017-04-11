@@ -22,7 +22,8 @@ echo "TMPDIR = \"$BUILD_DIR/tmp\"" \
 
 # build image
 bitbake theatre-image
-cp $BUILD_DIR/tmp/deploy/images/qemux86-64/*.otaimg $OUT_DIR
+cp $BUILD_DIR/tmp/deploy/images/qemux86-64/*-image-qemux86-64.otaimg $OUT_DIR
 cp -r $BUILD_DIR/tmp/deploy/images/qemux86-64/ostree_repo $OUT_DIR
+cp $BUILD_DIR/tmp/deploy/images/qemux86/u-boot.rom $OUT_DIR
 
 EOF
