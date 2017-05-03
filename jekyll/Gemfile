@@ -6,4 +6,4 @@ gem 'jekyll-asciidoc', '>= 2.0.1'
 gem 'pygments.rb'
 gem 'therubyracer'
 gem 'octopress-debugger'
-
+gem 's3_website'
