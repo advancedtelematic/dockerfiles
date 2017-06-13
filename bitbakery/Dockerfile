@@ -1,7 +1,8 @@
 FROM debian
 MAINTAINER Robert Danitz <robert@advancedtelematic.com>
 
-ENV SRC_DIR="/opt/agl-repo"
+ENV IMAGE="core-image-minimal"
+ENV SRC_DIR="/opt/src"
 ENV BUILD_DIR="/tmp/build"
 ENV OUT_DIR="/var/opt/bitbake-artifacts"
 ENV CACHE_DIR="/var/cache/sstate-cache"
@@ -10,17 +11,14 @@ ENV CACHE_DIR="/var/cache/sstate-cache"
 
 RUN apt-get update -q && \
     apt-get install -qy \
-    gawk wget git-core diffstat unzip texinfo gcc-multilib \
-    build-essential chrpath socat libsdl1.2-dev xterm qemu \
-    cpio locales python3 sudo && \
+    chrpath cpio diffstat gcc-multilib git-core libsdl1.2-dev locales qemu socat texinfo unzip wget xterm && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LC_ALL="en_US.UTF-8"
 ENV LANG="en_US.UTF-8"
 ENV LANGUAGE="en_US.UTF-8"
-RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
-    locale-gen
+RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 
 ADD run.sh /usr/local/bin
 CMD ["bash", "-C", "run.sh"]
