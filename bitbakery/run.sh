@@ -1,32 +1,23 @@
 #!/bin/sh
 
 # create myself
-useradd --shell /bin/bash -u $USER_ID -o -c "" -m bitbake
+useradd --shell /bin/bash -u $USER_ID -o -c "" -m bitbake -d /home/bitbake
 
 id
 exec sudo -u bitbake /bin/bash - << EOF
 id
 
-# path gnutls
-cd $SRC_DIR/poky
-wget -O patch.diff https://patchwork.openembedded.org/patch/133002/raw/
-patch -p1 < patch.diff
+export HOME=/home/bitbake
 
-. $SRC_DIR/env-init.sh qemux86-64
+source $SRC_DIR/meta-updater/scripts/envsetup.sh $TARGET $BUILD_DIR
 
 # appending user-defined config
-cat /opt/local.conf.append >> conf/local.conf || true
-
-# prepare config
-echo "SSTATE_DIR ?= \"$CACHE_DIR\"" \
-  >> conf/local.conf
-echo "TMPDIR = \"$BUILD_DIR/tmp\"" \
-  >> conf/local.conf
+cp /opt/site.conf conf/
 
 # build image
 bitbake $IMAGE
-cp $BUILD_DIR/tmp/deploy/images/qemux86-64/*-qemux86-64.otaimg $OUT_DIR
-cp $BUILD_DIR/tmp/deploy/images/qemux86-64/u-boot.rom $OUT_DIR
-cp -r $BUILD_DIR/tmp/deploy/images/qemux86-64/ostree_repo $OUT_DIR
+cp $BUILD_DIR/tmp/deploy/images/$TARGET/$IMAGE-$TARGET.otaimg $OUT_DIR
+cp $BUILD_DIR/tmp/deploy/images/$TARGET/u-boot.* $OUT_DIR
+cp -r $BUILD_DIR/tmp/deploy/images/$TARGET/ostree_repo $OUT_DIR
 
 EOF
