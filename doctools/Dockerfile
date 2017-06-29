@@ -58,7 +58,7 @@ RUN apk add tar libarchive-tools && \
   apk del tar libarchive-tools
 
 RUN apk add bash py-pillow py-pip python && pip install cherrypy seqdiag actdiag nwdiag && apk del py-pip
-
+RUN gem install --pre asciidoctor-latex
 ADD ats-doc-builder/pdf-themes /themes/
 ADD ats-doc-builder/docx-themes /themes/
 ADD bin/* /bin/

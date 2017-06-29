@@ -10,6 +10,7 @@ class AsciidoctorCommand(object):
     def __init__(self, args):
         self.format = args.format
         self.inputfile = args.inputfile
+        self.attribute = args.attribute
         if args.pdfstyle:
             self.pdfstyle = args.pdfstyle
         if args.outputfile:
@@ -45,7 +46,16 @@ class AsciidoctorCommand(object):
             "-b", "docbook",
             "-o", "-"
             ]
-        
+        elif self.format == 'tex':
+            cmdline = [
+            "asciidoctor-latex",
+            "-o", self.outputfile
+            ]
+            
+        if self.attribute is not None:
+            for attr in self.attribute:
+                cmdline.extend(["-a", attr])
+
         cmdline.append(self.inputfile)
 
         if self.format == 'docx':
@@ -59,14 +69,15 @@ class AsciidoctorCommand(object):
         return cmdline
 
 
+
 def main():
     parser = ArgumentParser(description='Generate a rendered document from one or more asciidoc sources')
     parser.add_argument('inputfile')
     parser.add_argument('-o', '--outputfile', help='File to output. Defaults to same name as input file, with the new extension.')
-    parser.add_argument('-f', '--format', default='pdf', help='Type of doc to generate: html|pdf|docx|adoc. \n\'adoc\' output will resolve all conditionals and includes, yielding a new coalesced asciidoc file.')
+    parser.add_argument('-f', '--format', default='pdf', help='Type of doc to generate: html|pdf|docx|tex|adoc. \'adoc\' output will resolve all conditionals and includes, yielding a new coalesced asciidoc file.')
     parser.add_argument('-s', '--pdfstyle', default='ats-whitepaper', help='PDF stylesheet to apply: ats-whitepaper|ats-rfq')
     parser.add_argument('-n', '--dry-run', help='Print asciidoctor command line rather then run it', action='store_true')
-
+    parser.add_argument('-a', '--attribute', help='Document attribute to set in the form of key, key! or key=value pair. Multiple -a arguments are accepted. Takes precedence over attributes set in the document.', action='append')
     args = parser.parse_args()
 
     try:
