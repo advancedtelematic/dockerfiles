@@ -1,10 +1,10 @@
 #!/bin/bash
 
-set -xeo pipefail
+set -xeuo pipefail
 
-
-version=${1?"Usage: $0 <version> [<push=false]"}
-push=${2:-false}
+version=${1?"Usage: $0 <version> [<upload=false>] [<no-cache=false>]"}
+upload=${2:-false}
+nocache=${3:-false}
 
 repo="advancedtelematic/rust"
 archs=("x86" "armel" "armhf")
@@ -17,7 +17,8 @@ for arch in "${archs[@]}"; do
     --tag "$tag" \
     --build-arg arch="$arch" \
     --build-arg rustc_version="$version" \
+    $(eval [[ "$nocache" = true ]] && echo " --no-cache ") \
     .
 
-  [[ "$push" = true ]] && docker push "$tag"
+  [[ "$upload" = true ]] && docker push "$tag"
 done
