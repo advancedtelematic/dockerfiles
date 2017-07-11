@@ -1,13 +1,12 @@
 # Documentation-related toolset
 
-This docker image contains everything you need to do stuff with docs.
+This docker image contains everything you need to render asciidoc documents in a user-presentable format.
 
 Included tools:
 
     asciidoctor
     asciidoctor-pdf
     asciidoctor-diagram
-    jekyll-asciidoc
     pandoc
     blockdiag
     seqdiag
