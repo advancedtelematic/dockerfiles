@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-ENV QEMU_VERSION 2.8.0
+ENV QEMU_VERSION 2.9.0
 
 RUN apk add --update --upgrade --no-cache libtool \
   && apk add --no-cache --virtual .build-deps \
