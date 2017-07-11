@@ -28,6 +28,7 @@ class AsciidoctorCommand(object):
                 "-a", "pdf-style=" + self.pdfstyle + ".yml", 
                 "-a", "pdf-fontsdir=/themes",
                 "-a", "pdf-stylesdir=/themes",
+                "-r", "/bin/ats-title-page-extension.rb",
                 "-o", self.outputfile
                 ]
         elif self.format == 'html':
