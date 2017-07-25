@@ -1,2 +1,0 @@
-#!/bin/sh
-asciidoctor -b docbook -o - $1 | pandoc -f docbook -t docx --reference-docx=/themes/ats-reference.docx -o ${1%.*}.docx
