@@ -3,7 +3,7 @@ MAINTAINER Alex Humphreys <alex@advancedtelematic.com>
 
 # Taken from https://github.com/samdoshi/docker-haskell-stack
 
-ENV STACK_VERSION 1.3.2
+ENV STACK_VERSION 1.5.1
 
 ENV STACK_DOWNLOAD_URL https://github.com/commercialhaskell/stack/releases/download/v$STACK_VERSION/stack-$STACK_VERSION-linux-x86_64.tar.gz
 ENV DEBIAN_FRONTEND noninteractive
