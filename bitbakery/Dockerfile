@@ -1,6 +1,7 @@
-FROM debian
+FROM ubuntu:xenial
 MAINTAINER Robert Danitz <robert@advancedtelematic.com>
 
+ENV TARGET="qemux86-64"
 ENV IMAGE="core-image-minimal"
 ENV SRC_DIR="/opt/src"
 ENV BUILD_DIR="/tmp/build"
@@ -10,8 +11,7 @@ ENV CACHE_DIR="/var/cache/sstate-cache"
 # install dependencies
 
 RUN apt-get update -q && \
-    apt-get install -qy \
-    chrpath cpio diffstat gcc-multilib git-core libsdl1.2-dev locales qemu socat texinfo unzip wget xterm && \
+    apt-get install -qy build-essential bzip2 chrpath cpio diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 qemu socat sudo texinfo unzip wget xterm && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
