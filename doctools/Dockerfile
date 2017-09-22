@@ -39,7 +39,7 @@ RUN apk add --no-cache cmark --repository http://nl.alpinelinux.org/alpine/edge/
 
 COPY ats-doc-builder/pdf-themes /themes/
 COPY ats-doc-builder/docx-themes /themes/
-COPY bin/* /bin/
+COPY ats-doc-builder/bin/* /bin/
 
 VOLUME /site
 WORKDIR /site
