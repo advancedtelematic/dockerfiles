@@ -36,6 +36,10 @@ RUN apk add --update --no-cache --repository http://dl-cdn.alpinelinux.org/alpin
 RUN apk add --no-cache cmark --repository http://nl.alpinelinux.org/alpine/edge/testing && \
   apk add --no-cache --allow-untrusted pandoc --repository https://conoria.gitlab.io/alpine-pandoc/
 
+# Add mermaid.cli
+# RUN apk add --update -X http://dl-cdn.alpinelinux.org/alpine/edge/community yarn && \
+#   yarn global add mermaid.cli && \
+#   ln `which mmdc` /usr/local/bin/mermaid
 
 COPY ats-doc-builder/pdf-themes /themes/
 COPY ats-doc-builder/docx-themes /themes/
