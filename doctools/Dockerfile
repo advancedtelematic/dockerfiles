@@ -45,7 +45,8 @@ COPY ats-doc-builder/pdf-themes /themes/
 COPY ats-doc-builder/docx-themes /themes/
 COPY ats-doc-builder/bin/* /bin/
 
-VOLUME /workdir
-WORKDIR /workdir
+VOLUME /site
+WORKDIR /site
 ENTRYPOINT ["doctools.py"]
 LABEL io.whalebrew.config.volumes '["~/.pdf-themes:/themes/user"]'
+LABEL io.whalebrew.config.working_dir '/site'
