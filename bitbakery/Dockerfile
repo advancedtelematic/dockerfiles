@@ -7,6 +7,7 @@ ENV SRC_DIR="/opt/src"
 ENV BUILD_DIR="/tmp/build"
 ENV OUT_DIR="/var/opt/bitbake-artifacts"
 ENV CACHE_DIR="/var/cache/sstate-cache"
+ENV BITBAKE_FLAGS=""
 
 # install dependencies
 
