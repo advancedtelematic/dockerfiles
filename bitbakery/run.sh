@@ -16,8 +16,9 @@ cp /opt/site.conf conf/
 
 # build image
 bitbake $BITBAKE_FLAGS $IMAGE
+result=$?
 cp $BUILD_DIR/tmp/deploy/images/$TARGET/$IMAGE-$TARGET.otaimg $OUT_DIR
 cp $BUILD_DIR/tmp/deploy/images/$TARGET/u-boot.* $OUT_DIR
 cp -r $BUILD_DIR/tmp/deploy/images/$TARGET/ostree_repo $OUT_DIR
-
+exit $result
 EOF
