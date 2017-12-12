@@ -12,7 +12,7 @@ ENV BITBAKE_FLAGS=""
 # install dependencies
 
 RUN apt-get update -q && \
-    apt-get install -qy build-essential bzip2 chrpath cpio diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 qemu socat sudo texinfo unzip wget xterm inetutils-ping && \
+    apt-get install -qy build-essential bzip2 chrpath cpio default-jre diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 qemu socat sudo texinfo unzip wget xterm inetutils-ping && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
