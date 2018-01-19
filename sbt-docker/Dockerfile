@@ -1,14 +1,17 @@
-FROM advancedtelematic/sbt
+FROM openjdk:8-jre-alpine
 
-RUN apt-get update \
- && apt-get install -y apt-transport-https ca-certificates
+ENV SBT_VERSION 0.13.8
 
-RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN apk add --no-cache bash curl openrc git && \
+    curl -sL "http://dl.bintray.com/sbt/native-packages/sbt/$SBT_VERSION/sbt-$SBT_VERSION.tgz" | gunzip | tar -x -C /usr/local && \
+    ln -s /usr/local/sbt/bin/sbt /usr/local/bin/sbt && \
+    chmod 0755 /usr/local/bin/sbt && \
+    apk add --no-cache --repository http://dl-cdn.alpinelinux.org/alpine/edge/main --repository  http://dl-cdn.alpinelinux.org/alpine/edge/community docker
 
-RUN echo deb https://apt.dockerproject.org/repo debian-jessie main > /etc/apt/sources.list.d/docker.list
+RUN rc-update add docker
 
-RUN apt-get update \
- && apt-get install -y docker-engine=1.10.0-0~jessie openjdk-8-jdk \
- && apt-get clean
+VOLUME /app
 
-WORKDIR /src
+WORKDIR /app
+
+RUN sbt
