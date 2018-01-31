@@ -6,4 +6,6 @@ RUN apk add --update curl python git openssh bash && \
     chmod a+x repo && \
     mv repo /usr/bin
 
+WORKDIR /src
+
 ENTRYPOINT ["repo"]
