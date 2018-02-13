@@ -6,9 +6,8 @@ ENV IMAGE="core-image-minimal"
 ENV SRC_DIR="/opt/updater-repo"
 ENV BUILD_DIR="/tmp/build"
 ENV OUT_DIR="/var/opt/bitbake-artifacts"
-ENV CACHE_DIR="/var/cache/sstate-cache"
 ENV BITBAKE_FLAGS=""
-ENV CONF_DIR="/opt/bitbake"
+ENV CONF_DIR="/opt/conf"
 
 # install dependencies
 
@@ -26,4 +25,4 @@ ENV LANGUAGE="en_US.UTF-8"
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 
 ADD bitbake.sh /usr/local/bin
-CMD ["bash", "-C", "bitbake.sh"]
+ENTRYPOINT ["/usr/bin/env", "bash", "-c", "/usr/local/bin/bitbake.sh"]
