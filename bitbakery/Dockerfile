@@ -15,7 +15,7 @@ ENV CONF_DIR="/opt/conf"
 RUN mkdir -p /usr/share/man/man1
 
 RUN apt-get update -q && \
-    apt-get install -qy build-essential bzip2 chrpath cpio default-jre diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 qemu socat sudo texinfo unzip wget xterm inetutils-ping python iproute procps && \
+    apt-get install -qy build-essential bzip2 chrpath cpio default-jre diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 python3-requests qemu socat sudo texinfo unzip wget xterm inetutils-ping python iproute procps && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
