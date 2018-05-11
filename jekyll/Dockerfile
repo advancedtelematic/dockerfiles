@@ -1,4 +1,4 @@
-FROM ruby:2.2.6-alpine
+FROM ruby:2.4.3-alpine
 
 ADD Gemfile /
 
