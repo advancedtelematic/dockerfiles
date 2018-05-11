@@ -14,10 +14,36 @@ ENV CONF_DIR="/opt/conf"
 # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=863199
 RUN mkdir -p /usr/share/man/man1
 
-RUN apt-get update -q && \
-    apt-get install -qy build-essential bzip2 chrpath cpio default-jre diffstat gawk gcc-multilib git-core libsdl1.2-dev locales python3 python3-requests qemu socat sudo texinfo unzip wget xterm inetutils-ping python iproute procps && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get update -q \
+  && apt-get install -qy \
+     build-essential \
+     bzip2 \
+     chrpath \
+     cpio \
+     default-jre \
+     diffstat \
+     g++-6-multilib \
+     gawk \
+     gcc-6-multilib \
+     git-core \
+     inetutils-ping \
+     iproute \
+     libpython2.7-dev \
+     libsdl1.2-dev \
+     locales \
+     procps \
+     python \
+     python3 \
+     python3-requests \
+     qemu \
+     socat \
+     sudo \
+     texinfo \
+     unzip \
+     wget \
+     xterm \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LC_ALL="en_US.UTF-8"
 ENV LANG="en_US.UTF-8"
