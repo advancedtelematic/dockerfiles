@@ -1,0 +1,3 @@
+# npm with webpack
+
+	docker build -t advancedtelematic/npm:0.1.0-webpack .
