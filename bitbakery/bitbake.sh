@@ -12,7 +12,7 @@ bitbake $BITBAKE_FLAGS $IMAGE
 result=$?
 
 if [ $result -eq 0 ]; then
-  cp $BUILD_DIR/tmp/deploy/images/$TARGET/$IMAGE-$TARGET.otaimg \
+  cp $BUILD_DIR/tmp/deploy/images/$TARGET/$IMAGE-$TARGET.ota* \
      $OUT_DIR
   cp $BUILD_DIR/tmp/deploy/images/$TARGET/u-boot.* \
      $OUT_DIR
