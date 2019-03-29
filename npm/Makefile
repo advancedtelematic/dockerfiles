@@ -2,7 +2,7 @@
 .DEFAULT_GOAL := build
 
 REPOSITORY=advancedtelematic/npm
-VERSION=0.1.1-webpack
+VERSION=10.1
 
 build:
 	docker build -t $(REPOSITORY):$(VERSION) .
