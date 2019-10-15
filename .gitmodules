@@ -1,3 +1,0 @@
-[submodule "jekyll/ats-doc-builder"]
-	path = doctools/ats-doc-builder
-	url = git@github.com:advancedtelematic/ats-doc-builder.git

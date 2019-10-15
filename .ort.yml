@@ -1,8 +1,5 @@
 excludes:
   paths:
-  - pattern: "jekyll/**"
-    reason: "OPTIONAL_COMPONENT_OF"
-    comment: "This directory contains code which is not distributed."
   - pattern: "doctools/**"
     reason: "OPTIONAL_COMPONENT_OF"
     comment: "This directory contains code which is not distributed."
